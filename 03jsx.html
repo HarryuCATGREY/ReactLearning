@@ -1,0 +1,11 @@
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+
+<script type="text/babel">// babel是词典的意思，他会将<div>这样定义元素的代码转成js定义react元素的格式
+  const rootElement = document.getElementById("root"); //永远别忘了const
+  const element = <div className="container">Hello world</div> //如同html的格式
+  //render的参数顺序很关键，必须先是react元素才能显示。
+  ReactDOM.render(element,rootElement); 
+</script>

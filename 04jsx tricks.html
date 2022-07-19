@@ -1,0 +1,17 @@
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+
+<script type="text/babel">// babel是词典的意思，他会将<div>这样定义元素的代码转成js定义react元素的格式
+  const rootElement = document.getElementById('root');
+  const className = "container"; //变量可以定义为和属性名同名
+  const content = "Hello";
+  const content2 = <strong> world</strong>; //content的定义可以包括标签
+  const children = "this is children"
+  const props = {className, children}; // props 为 spread operator，可以在jsx语句中代入属性名和属性值，是多个变量的一个容器
+  const element = <div className = {className}>{content}{content2}</div>
+  const element2 = <div className = {className} children={content}/>//标签里面的内容可以写进div的属性中
+  const element3 = <div {...props}/>
+ ReactDOM.render(element3,rootElement);
+</script>

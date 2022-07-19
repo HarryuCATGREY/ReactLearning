@@ -1,0 +1,20 @@
+<div id="root"></div>
+<div id="root2"></div>
+<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+
+<script type="text/babel">
+  const rootElement = document.getElementById("root");
+  const rootElement2 = document.getElementById("root2");
+  // react fragment是一种将多个react元素放在一起，然后一起渲染的东西，和spread operator不同，他能将多个children合并
+  // 下面是原生的React语言
+  const helloElement = React.createElement("span", null, "Hello");
+  const worldElement = React.createElement("span", null, "World");
+  const Fragment = React.createElement(React.Fragment, null, helloElement, ' ', worldElement)
+  //下面是JSX
+  const jsxFragment = <React.Fragment>{helloElement} {worldElement}</React.Fragment>
+  
+  ReactDOM.render(Fragment, rootElement);
+  ReactDOM.render(jsxFragment, rootElement2);
+</script>
