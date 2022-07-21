@@ -1,0 +1,37 @@
+<!-- ## Notes
+
+- When you create reusable React components, you want to make sure that people use them correctly. The best way to do this is to use TypeScript in your codebase to give you compile-time checking of your code.
+- If you’re not using TypeScript, you can still use PropTypes to get runtime validation.
+
+- **Using PropTypes**:
+
+```html -->
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    function SayHello({firstName, lastName}){
+      return <div className="element">Hi, {firstName}, {lastName}</div>
+    }
+    const element = <SayHello lastName="YU"/>
+    const PropTypes = {
+       string(props, propName, componentName) {
+         if (typeof props[propName] !== 'string') {
+           return new Error(
+             `Hey, the component ${componentName} needs the prop ${propName} to be a string`
+           );
+         }
+       }
+     };
+
+     SayHello.propTypes = {
+         firstName: PropTypes.string.isRequired,
+         lastName: PropTypes.string
+     }
+
+     ReactDOM.render(element, document.getElementById('root'));
+    ReactDOM.render(element, document.getElementById('root'));
+  </script>
+</body>

@@ -1,0 +1,26 @@
+<div id="root"></div>
+<div id="root2"></div>
+<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+
+<script type="text/babel">
+  function Message({children}) {
+    return <div className="Message">{children}</div>;
+  }
+  function Aessage({ele1, ele2}) {
+    return <div className="Message">{ele1},{ele2}</div>;
+  }
+  const reactElement = <Message>Hello, world</Message>
+  const reactElement2 = <div>
+      <Message>Hello world</Message>
+      <Message>Goodbye world</Message>
+    </div>
+  const reactElement3 = <Aessage ele1="hi" ele2="bob"></Aessage>
+  ReactDOM.render(reactElement2, document.getElementById("root"));
+  ReactDOM.render(reactElement3, document.getElementById("root2"));
+  const newdiv = document.createElement("div");
+  const newdivcontent = document.createTextNode("This is new div");
+  newdiv.appendChild(newdivcontent);
+  document.insertBefore(newdiv, document.getElementById("root") )
+</script>
